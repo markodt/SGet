@@ -1,0 +1,55 @@
+﻿<Window x:Class="SGet.BatchDownload"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="Create Batch Download" Height="Auto" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/SGet;component/Resources/download_icon.ico" Name="batchDownloadWindow" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <Style x:Key="BackgroundStyle" TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush>
+                            <GradientStop Color="White" Offset="0.0" />
+                            <GradientStop Color="#FFF0F0F0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource BackgroundStyle}" Width="474" Height="447">
+        <Label Content="Save to:" Height="28" HorizontalAlignment="Left" Margin="18,307,0,0" Name="lblSaveTo" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="77,309,0,0" Name="tbDownloadFolder" VerticalAlignment="Top" Width="284" Text="" IsReadOnly="True" />
+        <Button Content="Browse..." Height="23" HorizontalAlignment="Left" Margin="381,308,0,0" Name="btnBrowse" VerticalAlignment="Top" Width="75" Click="btnBrowse_Click" />
+        <Button Content="Download" Height="23" HorizontalAlignment="Left" Margin="251,406,0,0" Name="btnDownload" VerticalAlignment="Top" Width="75" IsDefault="True" Click="btnDownload_Click" />
+        <CheckBox Content="Start Immediately" Height="16" HorizontalAlignment="Left" Margin="251,360,0,0" Name="cbStartImmediately" VerticalAlignment="Top" IsChecked="True" Click="cbStartImmediately_Click" />
+        <TextBox Height="23" Margin="18,38,0,0" Name="tbURL" VerticalAlignment="Top" TextChanged="tbURL_TextChanged" HorizontalAlignment="Left" Width="438" />
+        <Button Content="Cancel" Margin="381,406,0,0" Name="btnCancel" IsCancel="True" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" />
+        <Label Content="URL:     (e.g. http://www.microsoft.com/image*.jpg)" Margin="18,10,0,0" Name="lblURL" HorizontalAlignment="Left" Width="308" Height="28" VerticalAlignment="Top" />
+        <CheckBox Content="Login to Server:" Height="16" HorizontalAlignment="Left" Margin="18,347,0,0" Name="cbLoginToServer" VerticalAlignment="Top" Click="cbLoginToServer_Click" />
+        <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="18,372,0,0" Name="lblUsername" VerticalAlignment="Top" />
+        <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="18,405,0,0" Name="lblPassword" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="90,374,0,0" Name="tbUsername" VerticalAlignment="Top" Width="120" Text="" IsReadOnly="False" IsEnabled="False" />
+        <PasswordBox Margin="90,405,0,0" Name="tbPassword" IsEnabled="False" HorizontalAlignment="Left" Width="120" Height="23" VerticalAlignment="Top" />
+        <RadioButton Content="From" Height="16" HorizontalAlignment="Left" Margin="23,74,0,0" Name="rbFrom1" VerticalAlignment="Top" IsChecked="False" GroupName="IndexGroup" Checked="rbFrom1_Checked" />
+        <RadioButton Content="From" Height="16" HorizontalAlignment="Left" Margin="23,104,0,0" Name="rbFrom2" VerticalAlignment="Top" GroupName="IndexGroup" Checked="rbFrom2_Checked" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="79,71,0,0" Name="tbFrom1" VerticalAlignment="Top" Width="45" Text="1" TextChanged="tbFrom1_TextChanged" MaxLength="5" />
+        <TextBox Height="23" Margin="79,101,0,0" Name="tbFrom2" VerticalAlignment="Top" IsEnabled="False" Text="a" HorizontalAlignment="Left" Width="45" TextChanged="tbFrom2_TextChanged" MaxLength="1" />
+        <Label Content="to" Height="28" HorizontalAlignment="Left" Margin="132,69,0,0" Name="lblTo1" VerticalAlignment="Top" />
+        <Label Content="to" Height="28" HorizontalAlignment="Left" Margin="132,99,0,0" Name="lblTo2" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="161,71,0,0" Name="tbTo1" VerticalAlignment="Top" Width="45" TextChanged="tbTo1_TextChanged" MaxLength="5" Text="10" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="161,101,0,0" Name="tbTo2" VerticalAlignment="Top" Width="45" IsEnabled="False" Text="z" TextChanged="tbTo2_TextChanged" MaxLength="1" />
+        <Label Content="Number Length:" Height="28" HorizontalAlignment="Left" Margin="226,69,0,0" Name="lblNumberLength" VerticalAlignment="Top" />
+        <xctk:IntegerUpDown Value="1" Increment="1" Maximum="5" HorizontalAlignment="Left" Margin="328,70,0,0" VerticalAlignment="Top" DefaultValue="1" Minimum="1" CultureInfo="(Default)" Name="intNumberLength" TextAlignment="Left" Height="23" HorizontalContentAlignment="Left" ValueChanged="intNumberLength_ValueChanged" />
+        <Label Content="(1-5)" Height="28" HorizontalAlignment="Left" Margin="375,69,0,0" Name="lbl15" VerticalAlignment="Top" />
+        <Label Content="0 files to download" Height="28" HorizontalAlignment="Left" Margin="18,135,0,0" Name="lblFilesToDownload" VerticalAlignment="Top" />
+        <ListBox Height="128" HorizontalAlignment="Left" Margin="18,163,0,0" Name="listBoxFiles" VerticalAlignment="Top" Width="438" BorderThickness="1" Padding="0">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="2"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <Label Content="(Letters are case-sensitive: A&lt;Z&lt;a&lt;z)" Height="28" HorizontalAlignment="Left" Margin="214,99,0,0" Name="lblLetters" VerticalAlignment="Top" />
+    </Grid>
+</Window>

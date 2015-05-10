@@ -1,0 +1,38 @@
+﻿<Window x:Class="SGet.NewDownload"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add New Download" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/SGet;component/Resources/download_icon.ico" Name="newDownloadWindow" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <Style x:Key="BackgroundStyle" TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush>
+                            <GradientStop Color="White" Offset="0.0" />
+                            <GradientStop Color="#FFF0F0F0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource BackgroundStyle}" Width="473" Height="213">
+        <Label Content="Save to:" Height="28" HorizontalAlignment="Left" Margin="12,46,0,0" Name="lblSaveTo" VerticalAlignment="Top" />
+        <Label Content="Save As:" Height="28" HorizontalAlignment="Left" Margin="12,80,0,0" Name="lblSaveAs" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="77,48,0,0" Name="tbDownloadFolder" VerticalAlignment="Top" Width="284" Text="" IsReadOnly="True" TextChanged="tbDownloadFolder_TextChanged" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="77,82,0,0" Name="tbSaveAs" VerticalAlignment="Top" Width="200" />
+        <Button Content="Browse..." Height="23" HorizontalAlignment="Left" Margin="381,47,0,0" Name="btnBrowse" VerticalAlignment="Top" Width="75" Click="btnBrowse_Click" />
+        <Button Content="Download" Height="23" HorizontalAlignment="Left" Margin="251,176,0,0" Name="btnDownload" VerticalAlignment="Top" Width="75" IsDefault="True" Click="btnDownload_Click" />
+        <CheckBox Content="Start Immediately" Height="16" HorizontalAlignment="Left" Margin="251,118,0,0" Name="cbStartImmediately" VerticalAlignment="Top" IsChecked="True" Click="cbStartImmediately_Click" />
+        <TextBox Height="23" Margin="77,14,0,0" Name="tbURL" VerticalAlignment="Top" TextChanged="tbURL_TextChanged" HorizontalAlignment="Left" Width="379" />
+        <Button Content="Cancel" Margin="381,176,0,0" Name="btnCancel" IsCancel="True" HorizontalAlignment="Left" Width="75" Height="23" VerticalAlignment="Top" />
+        <Label Content="URL:" Height="28" Margin="12,12,0,0" Name="lblURL" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34" />
+        <CheckBox Content="Open File on Completion" Height="16" HorizontalAlignment="Left" Margin="251,143,0,0" Name="cbOpenFileOnCompletion" VerticalAlignment="Top" />
+        <CheckBox Content="Login to Server:" Height="16" HorizontalAlignment="Left" Margin="18,118,0,0" Name="cbLoginToServer" VerticalAlignment="Top" Click="cbLoginToServer_Click" />
+        <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="18,143,0,0" Name="lblUsername" VerticalAlignment="Top" />
+        <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="18,175,0,0" Name="lblPassword" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="90,145,0,0" Name="tbUsername" VerticalAlignment="Top" Width="120" Text="" IsReadOnly="False" IsEnabled="False" />
+        <PasswordBox Margin="90,176,0,0" Name="tbPassword" IsEnabled="False" HorizontalAlignment="Left" Width="120" Height="23" VerticalAlignment="Top" />
+        <Label Content="Free Disk Space:" Height="28" HorizontalAlignment="Left" Margin="295,80,0,0" Name="lblFreeSpace" VerticalAlignment="Top" />
+    </Grid>
+</Window>
