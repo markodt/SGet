@@ -1,7 +1,5 @@
 # SGet Download Manager
 
-![alt tag](https://dl.dropboxusercontent.com/u/21570423/sget.png)
-
 ### Features
 - Download multiple files simultaneously
 - Add or remove files from the download list
